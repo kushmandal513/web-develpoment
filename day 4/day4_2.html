@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#333;
+            color:#fff;
+            padding:20px;
+            text-align:center;
+        }
+
+        nav{
+            background:#444;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin:0 15px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+
+        .post{
+            background:#fff;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .post img{
+            width:100%;
+            border-radius:10px;
+            margin-bottom:15px;
+        }
+
+        .post h2{
+            margin-bottom:10px;
+        }
+
+        .post p{
+            margin-bottom:15px;
+        }
+
+        .btn{
+            display:inline-block;
+            background:#007BFF;
+            color:white;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#0056b3;
+        }
+
+        footer{
+            background:#333;
+            color:#fff;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+
+        @media(max-width:768px){
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Personal Blog</h1>
+    <p>Sharing ideas, stories, and tutorials</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Blog</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="container">
+
+    <div class="post">
+        <img src="https://picsum.photos/900/400?random=1" alt="Blog Image and video">
+        <h2>How to Start Coding</h2>
+        <p><strong>Published:</strong> July 14, 2026</p>
+        <p>
+            Coding is one of the most valuable skills today. Start with HTML,
+            CSS, and JavaScript to build websites. Practice every day and keep
+            creating projects.
+        </p>
+        <a href="#" class="btn">Read More</a>
+    </div>
+
+    <div class="post">
+        <img src="https://picsum.photos/900/400?random=2" alt="Blog Image and video">
+        <h2>10 Tips for Better Web Design</h2>
+        <p><strong>Published:</strong> July 10, 2026</p>
+        <p>
+            A clean layout, consistent colors, readable fonts, and responsive
+            design make websites look professional and improve user experience.
+        </p>
+        <a href="#" class="btn">Read More</a>
+    </div>
+
+    <div class="post">
+        <img src="https://picsum.photos/900/400?random=3" alt="Blog Image">
+        <h2>Learning JavaScript</h2>
+        <p><strong>Published:</strong> July 5, 2026</p>
+        <p>
+            JavaScript adds interactivity to websites. Learn variables,
+            functions, loops, DOM manipulation, and APIs to become a frontend
+            developer.
+        </p>
+        <a href="#" class="btn">Read More</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 My Blog | Designed with HTML & CSS</p>
+</footer>
+
+</body>
+</html>

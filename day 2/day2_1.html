@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0px;
+        }
+        form {
+            background-color: #c92b2b;
+            padding: 20px;
+            border-radius: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="gender"],
+    </style>
+</head>
+<body>
+    <form action="submit-data" method="post">
+    <div>
+    <label for="name"> Enter your name:</label><br>
+    <input 
+        type="text"  
+        placeholder="enter your name"  
+        id="name"  
+        name="name"
+        required/><br>
+    </div>  
+    <div>
+    <label for="email">Enter your Email Address:</label><br>
+    <input 
+        type="email" 
+        placeholder="enter your email" 
+        id="email" 
+        name="email"
+        required/><br>
+    </div>
+    <div>
+    <label for="password"> Enter your Password:</label><br>
+    <input 
+        type="password"  
+        placeholder="enter your password" 
+        id="password" 
+        name="password"
+        required/><br>
+    </div>
+    <div>
+    <label for="gender" >gender:</label><br>
+    <input 
+        type="gender" 
+        placeholder="enter your gender" 
+        id="gender" 
+        name="gender"
+        required/><br>
+    </div>
+    <div>
+    <label for="checkbox">Checkbox:</label><br>
+    <input 
+        type="checkbox" 
+        placeholder="enter your checkbox"
+        id="checkbox" 
+        name="checkbox"
+        required/><br>
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
