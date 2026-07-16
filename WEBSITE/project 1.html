@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mithila Art — Buy &amp; Sell Handpainted Mithila Paintings</title>
+<meta name="description" content="Mithila Art connects painters of the Mithila region in the Nepal Terai directly with people who want a hand-painted piece on their wall.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F1E4C0'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23DD8F2E' stroke='%23251A10' stroke-width='4'/%3E%3Cg stroke='%23251A10' stroke-width='4' stroke-linecap='round'%3E%3Cline x1='50' y1='10' x2='50' y2='24'/%3E%3Cline x1='50' y1='76' x2='50' y2='90'/%3E%3Cline x1='10' y1='50' x2='24' y2='50'/%3E%3Cline x1='76' y1='50' x2='90' y2='50'/%3E%3Cline x1='22' y1='22' x2='31' y2='31'/%3E%3Cline x1='69' y1='69' x2='78' y2='78'/%3E%3Cline x1='78' y1='22' x2='69' y2='31'/%3E%3Cline x1='31' y1='69' x2='22' y2='78'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&amp;family=Karla:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  /* ---------- Reset ---------- */
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body,h1,h2,h3,p,figure,ul,ol{margin:0;}
+  ul,ol{padding:0;list-style:none;}
+  img,svg{display:block;max-width:100%;}
+  button{font:inherit;cursor:pointer;background:none;border:none;}
+  a{color:inherit;text-decoration:none;}
+  input,textarea,select{font:inherit;color:inherit;}
+
+  /* ---------- Tokens ---------- */
+  :root{
+    --paper:#F1E4C0;
+    --paper-deep:#E5D19E;
+    --card:#FBF3DE;
+    --ink:#251A10;
+    --ink-soft:#5A4630;
+    --sindoor:#B23A25;
+    --sindoor-deep:#8F2C1B;
+    --indigo:#2C4C70;
+    --leaf:#4A6A2E;
+    --marigold:#DD8F2E;
+    --line: rgba(37,26,16,0.18);
+    --shadow: 0 18px 40px -22px rgba(37,26,16,0.45);
+    --radius: 2px;
+    --display: "Eczar", serif;
+    --body: "Karla", sans-serif;
+    --mono: "JetBrains Mono", monospace;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sindoor-deep);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--sindoor);display:inline-block;}
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:3px solid var(--indigo);
+    outline-offset:3px;
+  }
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  section{padding:96px 0;}
+  @media (max-width:640px){ section{padding:64px 0;} .wrap{padding:0 20px;} }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 26px;
+    font-family:var(--mono);
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:2px solid var(--ink);
+    border-radius:var(--radius);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-solid{ background:var(--sindoor); border-color:var(--sindoor); color:var(--paper); }
+  .btn-solid:hover{ background:var(--sindoor-deep); border-color:var(--sindoor-deep); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .btn-outline{ background:transparent; color:var(--ink); }
+  .btn-outline:hover{ background:var(--ink); color:var(--paper); transform:translateY(-2px); }
+  .btn-small{padding:10px 16px;font-size:0.72rem;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,228,192,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1180px;margin:0 auto;padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo svg{width:30px;height:30px;flex:none;}
+  .logo-text{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-0.01em;}
+  .logo-text span{color:var(--sindoor);}
+
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{
+    font-family:var(--mono);font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;
+    color:var(--ink-soft); position:relative; padding-bottom:4px;
+  }
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--sindoor);transition:width .2s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a:hover{color:var(--ink);}
+
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .cart-btn{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:2px solid var(--ink);border-radius:50%;}
+  .cart-btn svg{width:18px;height:18px;}
+  .cart-count{
+    position:absolute;top:-6px;right:-6px;
+    background:var(--sindoor);color:var(--paper);
+    font-family:var(--mono);font-size:0.65rem;font-weight:600;
+    min-width:18px;height:18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:2px solid var(--paper);
+  }
+  .hamburger{display:none;width:38px;height:38px;border:2px solid var(--ink);border-radius:50%;align-items:center;justify-content:center;}
+  .hamburger svg{width:16px;height:16px;}
+
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed;inset:66px 0 auto 0;background:var(--paper);
+      flex-direction:column;align-items:flex-start;gap:0;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-130%);opacity:0;visibility:hidden;
+      transition:transform .25s ease, opacity .25s ease;
+      padding:8px 24px 20px;
+    }
+    .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line);}
+    body.nav-open .nav-links{transform:translateY(0);opacity:1;visibility:visible;}
+    .hamburger{display:flex;}
+    .nav-actions .btn-outline.sell-nav-btn{display:none;}
+  }
+
+  /* ---------- Frame (signature double-line border) ---------- */
+  .frame{position:relative;background:var(--card);}
+  .frame::before{
+    content:"";position:absolute;inset:8px;border:2px solid var(--ink);pointer-events:none;
+  }
+  .frame::after{
+    content:"";position:absolute;inset:4px;border:1px solid var(--sindoor);pointer-events:none;
+  }
+  .corner{position:absolute;width:34px;height:34px;color:var(--ink);}
+  .corner svg{width:100%;height:100%;}
+  .corner.tl{top:0;left:0;}
+  .corner.tr{top:0;right:0;transform:scaleX(-1);}
+  .corner.bl{bottom:0;left:0;transform:scaleY(-1);}
+  .corner.br{bottom:0;right:0;transform:scale(-1,-1);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:64px;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;}
+  .hero-copy h1{font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1.08;margin:18px 0 22px;}
+  .hero-copy p{max-width:46ch;color:var(--ink-soft);font-size:1.05rem;}
+  .hero-ctas{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;}
+  .hero-note{margin-top:26px;font-family:var(--mono);font-size:0.78rem;color:var(--ink-soft);display:flex;gap:10px;align-items:center;}
+  .hero-note svg{width:16px;height:16px;flex:none;color:var(--leaf);}
+
+  .hero-visual{position:relative;padding:26px;}
+  .hero-visual .frame{padding:22px;}
+  .hero-visual svg.artwork{width:100%;height:auto;}
+  .hero-visual figcaption{
+    margin-top:14px;text-align:center;font-family:var(--mono);
+    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{order:-1;max-width:420px;margin:0 auto;}
+  }
+
+  /* ---------- Motif band ---------- */
+  .motif-band{width:100%;height:30px;overflow:hidden;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .motif-band svg{width:100%;height:100%;display:block;}
+  .motif-band.alt{background:var(--paper);}
+
+  /* ---------- Section heads ---------- */
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-top:14px;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head.center .eyebrow{justify-content:center;}
+  .section-head.center .eyebrow::before{display:none;}
+
+  /* ---------- Gallery ---------- */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:38px;}
+  .filter-btn{
+    font-family:var(--mono);font-size:0.74rem;letter-spacing:0.04em;text-transform:uppercase;
+    padding:9px 16px;border:1.5px solid var(--ink);border-radius:20px;color:var(--ink-soft);
+    transition:background .18s ease,color .18s ease;
+  }
+  .filter-btn:hover{color:var(--ink);}
+  .filter-btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px;}
+  .card{display:flex;flex-direction:column;transition:transform .22s ease;}
+  .card:hover{transform:translateY(-4px);}
+  .card-thumb{position:relative;aspect-ratio:1/1;padding:14px;}
+  .card-thumb .icon-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:1px;}
+  .card-thumb svg{width:78%;height:78%;}
+  .card-body{padding:18px 4px 4px;}
+  .card-theme{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--sindoor-deep);}
+  .card-title{font-family:var(--display);font-size:1.18rem;font-weight:700;margin-top:8px;}
+  .card-artist{font-size:0.86rem;color:var(--ink-soft);margin-top:4px;}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;}
+  .card-price{font-family:var(--mono);font-weight:600;font-size:0.98rem;}
+  .card.hidden{display:none;}
+
+  .gallery-empty{display:none;text-align:center;padding:60px 0;color:var(--ink-soft);font-family:var(--mono);font-size:0.85rem;}
+  .gallery-empty.show{display:block;}
+
+  /* ---------- Sell section ---------- */
+  .sell{background:var(--paper-deep);}
+  .sell-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  @media (max-width:900px){ .sell-grid{grid-template-columns:1fr;gap:48px;} }
+
+  .steps{counter-reset:step;}
+  .step{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    counter-increment:step;font-family:var(--mono);font-weight:600;
+    width:38px;height:38px;border:2px solid var(--ink);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .step-num::before{content:counter(step, decimal-leading-zero);}
+  .step h3{font-size:1.05rem;font-family:var(--body);font-weight:700;}
+  .step p{margin-top:6px;color:var(--ink-soft);font-size:0.94rem;}
+
+  .sell-form{padding:36px;}
+  .sell-form h3{font-family:var(--display);font-size:1.4rem;margin-bottom:4px;}
+  .sell-form .form-sub{color:var(--ink-soft);font-size:0.92rem;margin-bottom:26px;}
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:8px;
+  }
+  .field input, .field textarea, .field select{
+    width:100%;padding:12px 14px;background:var(--paper);
+    border:1.5px solid var(--line);border-radius:2px;color:var(--ink);
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--ink);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:520px){ .field-row{grid-template-columns:1fr;} }
+  .field textarea{resize:vertical;min-height:90px;}
+  .file-field{
+    border:1.5px dashed var(--line);border-radius:2px;padding:18px;text-align:center;
+    font-family:var(--mono);font-size:0.8rem;color:var(--ink-soft);position:relative;
+  }
+  .file-field input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .file-field span{display:block;margin-top:4px;color:var(--ink);}
+
+  .sell-success{display:none;text-align:center;padding:30px 6px;}
+  .sell-success.show{display:block;}
+  .sell-success svg{width:44px;height:44px;margin:0 auto 16px;color:var(--leaf);}
+  .sell-success h3{font-family:var(--display);font-size:1.3rem;}
+  .sell-success p{color:var(--ink-soft);margin-top:10px;font-size:0.94rem;}
+  .sell-form.hidden{display:none;}
+
+  /* ---------- Traditions ---------- */
+  .traditions-intro{max-width:760px;color:var(--ink-soft);font-size:1.02rem;margin-top:16px;}
+  .motif-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px;}
+  @media (max-width:900px){ .motif-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .motif-grid{grid-template-columns:1fr;} }
+  .motif-item{text-align:center;padding:28px 16px;}
+  .motif-item .icon-wrap{width:88px;height:88px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;}
+  .motif-item svg{width:56%;height:56%;}
+  .motif-item h3{font-size:1.02rem;font-family:var(--body);font-weight:700;}
+  .motif-item .motif-name{font-family:var(--mono);font-size:0.68rem;color:var(--sindoor-deep);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;}
+  .motif-item p{font-size:0.88rem;color:var(--ink-soft);margin-top:8px;}
+
+  /* ---------- Artists ---------- */
+  .artists{background:var(--paper-deep);}
+  .artist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:820px){ .artist-grid{grid-template-columns:1fr;} }
+  .artist-card{padding:30px;position:relative;}
+  .artist-avatar{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.2rem;}
+  .artist-card blockquote{font-family:var(--display);font-size:1.08rem;line-height:1.5;margin:20px 0 18px;}
+  .artist-meta{font-family:var(--mono);font-size:0.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;}
+  .artist-meta strong{color:var(--ink);display:block;font-family:var(--body);text-transform:none;font-size:0.95rem;letter-spacing:0;margin-bottom:2px;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:2px solid var(--ink);padding:72px 0 28px;}
+  .footer-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;}
+  @media (max-width:820px){ .footer-top{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .footer-top{grid-template-columns:1fr;} }
+  .footer-brand p{color:var(--ink-soft);font-size:0.92rem;margin-top:14px;max-width:32ch;}
+  .footer-col h4{font-family:var(--mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:16px;}
+  .footer-col a, .footer-col span{display:block;font-size:0.92rem;padding:6px 0;color:var(--ink);}
+  .footer-col a:hover{color:var(--sindoor);}
+  .newsletter{display:flex;margin-top:6px;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;}
+  .newsletter input{flex:1;border:none;padding:12px 14px;background:var(--card);}
+  .newsletter button{padding:0 16px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:0.78rem;text-transform:uppercase;}
+  .newsletter-note{font-size:0.78rem;color:var(--ink-soft);margin-top:10px;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:0.74rem;color:var(--ink-soft);}
+  .socials{display:flex;gap:10px;}
+  .socials a{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .socials svg{width:15px;height:15px;}
+
+  /* ---------- Cart drawer ---------- */
+  .cart-overlay{
+    position:fixed;inset:0;background:rgba(37,26,16,0.5);opacity:0;visibility:hidden;
+    transition:opacity .25s ease, visibility .25s ease;z-index:80;
+  }
+  .cart-overlay.open{opacity:1;visibility:visible;}
+  .cart-drawer{
+    position:fixed;top:0;right:0;bottom:0;width:400px;max-width:92vw;
+    background:var(--paper);border-left:2px solid var(--ink);z-index:90;
+    transform:translateX(100%);transition:transform .3s ease;
+    display:flex;flex-direction:column;
+  }
+  .cart-drawer.open{transform:translateX(0);}
+  .cart-head{display:flex;align-items:center;justify-content:space-between;padding:24px;border-bottom:1px solid var(--line);}
+  .cart-head h3{font-family:var(--display);font-size:1.3rem;}
+  .cart-close{width:36px;height:36px;border:1.5px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .cart-close svg{width:14px;height:14px;}
+  .cart-items{flex:1;overflow-y:auto;padding:12px 24px;}
+  .cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .cart-item .thumb{width:56px;height:56px;flex:none;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
+  .cart-item .thumb svg{width:70%;height:70%;}
+  .cart-item-info{flex:1;}
+  .cart-item-info .name{font-weight:700;font-size:0.92rem;}
+  .cart-item-info .meta{font-family:var(--mono);font-size:0.76rem;color:var(--ink-soft);margin-top:4px;}
+  .cart-item-remove{font-family:var(--mono);font-size:0.72rem;color:var(--sindoor);margin-top:8px;text-decoration:underline;}
+  .cart-empty{text-align:center;padding:60px 20px;color:var(--ink-soft);}
+  .cart-empty svg{width:40px;height:40px;margin:0 auto 14px;opacity:0.5;}
+  .cart-empty a{color:var(--sindoor);text-decoration:underline;}
+  .cart-foot{border-top:1px solid var(--line);padding:22px 24px 26px;}
+  .cart-subtotal{display:flex;justify-content:space-between;font-family:var(--mono);font-size:0.95rem;margin-bottom:16px;}
+  .cart-note{font-size:0.76rem;color:var(--ink-soft);margin-top:12px;text-align:center;}
+  .cart-success{display:none;text-align:center;padding:10px 0;}
+  .cart-success.show{display:block;}
+  .cart-success svg{width:34px;height:34px;margin:0 auto 10px;color:var(--leaf);}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+</style>
+</head>
+<body>
+
+<!-- ================= SPRITE ================= -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+
+    <symbol id="icon-logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="17" fill="var(--marigold)" stroke="var(--ink)" stroke-width="4"/>
+      <g stroke="var(--ink)" stroke-width="5" stroke-linecap="round">
+        <line x1="50" y1="8" x2="50" y2="22"/>
+        <line x1="50" y1="78" x2="50" y2="92"/>
+        <line x1="8" y1="50" x2="22" y2="50"/>
+        <line x1="78" y1="50" x2="92" y2="50"/>
+        <line x1="21" y1="21" x2="30" y2="30"/>
+        <line x1="70" y1="70" x2="79" y2="79"/>
+        <line x1="79" y1="21" x2="70" y2="30"/>
+        <line x1="30" y1="70" x2="21" y2="79"/>
+      </g>
+    </symbol>
+
+    <symbol id="icon-corner" viewBox="0 0 40 40">
+      <path d="M2 38 Q2 2 38 2" stroke="var(--ink)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="6" cy="33" r="3" fill="var(--sindoor)"/>
+      <circle cx="33" cy="6" r="3" fill="var(--marigold)"/>
+      <circle cx="14" cy="14" r="2" fill="var(--indigo)"/>
+    </symbol>
+
+    <symbol id="icon-cart" viewBox="0 0 24 24">
+      <path d="M2 3h2l2.6 12.4A2 2 0 0 0 8.55 17H18a2 2 0 0 0 1.95-1.57L21.5 8H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="9" cy="21" r="1.4" fill="currentColor"/>
+      <circle cx="18" cy="21" r="1.4" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></g>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></g>
+    </symbol>
+    <symbol id="icon-leaf-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M7 12.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M6 8h12l-1 12H7L6 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+
+    <!-- FISH -->
+    <symbol id="icon-fish" viewBox="0 0 200 200">
+      <path d="M14 195 Q40 180 70 195 T130 195 T186 195" fill="none" stroke="var(--indigo)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+      <path d="M25 100 Q100 35 175 100 Q100 165 25 100 Z" fill="var(--indigo)" stroke="var(--ink)" stroke-width="5"/>
+      <path d="M175 100 L206 64 L206 136 Z" fill="var(--sindoor)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M95 60 Q106 40 122 55" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M95 140 Q106 160 122 145" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="55" cy="92" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="57" cy="92" r="3.5" fill="var(--ink)"/>
+      <circle cx="75" cy="100" r="5" fill="var(--marigold)"/>
+      <circle cx="95" cy="86" r="5" fill="var(--sindoor)"/>
+      <circle cx="115" cy="100" r="5" fill="var(--marigold)"/>
+      <circle cx="135" cy="86" r="5" fill="var(--sindoor)"/>
+      <circle cx="95" cy="114" r="5" fill="var(--leaf)"/>
+      <circle cx="135" cy="114" r="5" fill="var(--leaf)"/>
+    </symbol>
+
+    <!-- PEACOCK -->
+    <symbol id="icon-peacock" viewBox="0 0 200 200">
+      <g stroke="var(--ink)" stroke-width="2" fill="none">
+        <line x1="105" y1="120" x2="135" y2="181" /><circle cx="135" cy="181" r="9" fill="var(--sindoor)"/><circle cx="135" cy="181" r="5" fill="var(--marigold)"/><circle cx="135" cy="181" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="154" y2="165" /><circle cx="154" cy="165" r="9" fill="var(--indigo)"/><circle cx="154" cy="165" r="5" fill="var(--marigold)"/><circle cx="154" cy="165" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="166" y2="144" /><circle cx="166" cy="144" r="9" fill="var(--sindoor)"/><circle cx="166" cy="144" r="5" fill="var(--marigold)"/><circle cx="166" cy="144" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="170" y2="120" /><circle cx="170" cy="120" r="9" fill="var(--indigo)"/><circle cx="170" cy="120" r="5" fill="var(--marigold)"/><circle cx="170" cy="120" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="166" y2="96" /><circle cx="166" cy="96" r="9" fill="var(--sindoor)"/><circle cx="166" cy="96" r="5" fill="var(--marigold)"/><circle cx="166" cy="96" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="154" y2="75" /><circle cx="154" cy="75" r="9" fill="var(--indigo)"/><circle cx="154" cy="75" r="5" fill="var(--marigold)"/><circle cx="154" cy="75" r="2" fill="var(--ink)"/>
+        <line x1="105" y1="120" x2="135" y2="59" /><circle cx="135" cy="59" r="9" fill="var(--sindoor)"/><circle cx="135" cy="59" r="5" fill="var(--marigold)"/><circle cx="135" cy="59" r="2" fill="var(--ink)"/>
+      </g>
+      <circle cx="80" cy="120" r="28" fill="var(--indigo)" stroke="var(--ink)" stroke-width="4"/>
+      <circle cx="70" cy="112" r="4" fill="var(--marigold)"/><circle cx="88" cy="128" r="4" fill="var(--sindoor)"/><circle cx="80" cy="134" r="3" fill="var(--marigold)"/>
+      <circle cx="55" cy="85" r="14" fill="var(--indigo)" stroke="var(--ink)" stroke-width="4"/>
+      <path d="M40 85 L55 80 L55 90 Z" fill="var(--marigold)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+      <g stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"><line x1="55" y1="71" x2="48" y2="55"/><line x1="55" y1="71" x2="55" y2="50"/><line x1="55" y1="71" x2="62" y2="55"/></g>
+      <circle cx="48" cy="55" r="2.5" fill="var(--marigold)"/><circle cx="55" cy="50" r="2.5" fill="var(--sindoor)"/><circle cx="62" cy="55" r="2.5" fill="var(--marigold)"/>
+      <g stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><line x1="75" y1="148" x2="70" y2="172"/><line x1="90" y1="150" x2="95" y2="172"/></g>
+    </symbol>
+
+    <!-- TREE OF LIFE -->
+    <symbol id="icon-tree" viewBox="0 0 200 200">
+      <path d="M20 195 Q100 205 180 195" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <rect x="93" y="118" width="14" height="68" rx="3" fill="var(--ink)"/>
+      <g stroke="var(--leaf)" stroke-width="5" fill="none" stroke-linecap="round">
+        <path d="M100 120 Q60 95 40 55"/>
+        <path d="M100 120 Q80 75 65 35"/>
+        <path d="M100 120 Q100 65 100 20"/>
+        <path d="M100 120 Q120 75 135 35"/>
+        <path d="M100 120 Q140 95 160 55"/>
+      </g>
+      <g>
+        <circle cx="34" cy="50" r="7" fill="var(--marigold)"/><circle cx="46" cy="50" r="7" fill="var(--sindoor)"/><circle cx="40" cy="42" r="7" fill="var(--indigo)"/>
+        <circle cx="59" cy="30" r="7" fill="var(--marigold)"/><circle cx="71" cy="30" r="7" fill="var(--sindoor)"/><circle cx="65" cy="22" r="7" fill="var(--indigo)"/>
+        <circle cx="94" cy="15" r="7" fill="var(--marigold)"/><circle cx="106" cy="15" r="7" fill="var(--sindoor)"/><circle cx="100" cy="7" r="7" fill="var(--indigo)"/>
+        <circle cx="129" cy="30" r="7" fill="var(--marigold)"/><circle cx="141" cy="30" r="7" fill="var(--sindoor)"/><circle cx="135" cy="22" r="7" fill="var(--indigo)"/>
+        <circle cx="154" cy="50" r="7" fill="var(--marigold)"/><circle cx="166" cy="50" r="7" fill="var(--sindoor)"/><circle cx="160" cy="42" r="7" fill="var(--indigo)"/>
+      </g>
+      <g stroke="var(--ink)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M70 62 Q75 56 80 62 Q85 56 90 62"/>
+        <path d="M120 48 Q125 42 130 48 Q135 42 140 48"/>
+      </g>
+      <g>
+        <g transform="translate(55,190)"><circle cx="-5" cy="0" r="4" fill="var(--sindoor)"/><circle cx="5" cy="0" r="4" fill="var(--sindoor)"/><circle cx="0" cy="-5" r="4" fill="var(--sindoor)"/><circle cx="0" cy="5" r="4" fill="var(--sindoor)"/><circle cx="0" cy="0" r="3" fill="var(--marigold)"/></g>
+        <g transform="translate(85,193)"><circle cx="-5" cy="0" r="4" fill="var(--indigo)"/><circle cx="5" cy="0" r="4" fill="var(--indigo)"/><circle cx="0" cy="-5" r="4" fill="var(--indigo)"/><circle cx="0" cy="5" r="4" fill="var(--indigo)"/><circle cx="0" cy="0" r="3" fill="var(--marigold)"/></g>
+        <g transform="translate(118,193)"><circle cx="-5" cy="0" r="4" fill="var(--sindoor)"/><circle cx="5" cy="0" r="4" fill="var(--sindoor)"/><circle cx="0" cy="-5" r="4" fill="var(--sindoor)"/><circle cx="0" cy="5" r="4" fill="var(--sindoor)"/><circle cx="0" cy="0" r="3" fill="var(--marigold)"/></g>
+        <g transform="translate(148,190)"><circle cx="-5" cy="0" r="4" fill="var(--indigo)"/><circle cx="5" cy="0" r="4" fill="var(--indigo)"/><circle cx="0" cy="-5" r="4" fill="var(--indigo)"/><circle cx="0" cy="5" r="4" fill="var(--indigo)"/><circle cx="0" cy="0" r="3" fill="var(--marigold)"/></g>
+      </g>
+    </symbol>
+
+    <!-- KOHBAR -->
+    <symbol id="icon-kohbar" viewBox="0 0 200 200">
+      <path d="M88 106 L88 84 Q100 76 112 84 L112 106 Z" fill="var(--marigold)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M70 140 Q70 108 100 104 Q130 108 130 140 L124 176 Q100 187 76 176 Z" fill="var(--sindoor)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="88" cy="130" r="4" fill="var(--marigold)"/><circle cx="112" cy="130" r="4" fill="var(--marigold)"/><circle cx="100" cy="150" r="4" fill="var(--marigold)"/><circle cx="88" cy="160" r="4" fill="var(--ink)"/><circle cx="112" cy="160" r="4" fill="var(--ink)"/>
+      <g stroke="var(--leaf)" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M100 82 Q82 65 70 45"/>
+        <path d="M100 82 Q92 60 88 38"/>
+        <path d="M100 82 Q100 58 100 34"/>
+        <path d="M100 82 Q108 60 112 38"/>
+        <path d="M100 82 Q118 65 130 45"/>
+      </g>
+      <circle cx="68" cy="43" r="5" fill="var(--indigo)"/><circle cx="86" cy="36" r="5" fill="var(--sindoor)"/><circle cx="100" cy="30" r="5" fill="var(--marigold)"/><circle cx="114" cy="36" r="5" fill="var(--sindoor)"/><circle cx="132" cy="43" r="5" fill="var(--indigo)"/>
+      <g transform="translate(46,150)"><circle r="13" fill="none" stroke="var(--ink)" stroke-width="2.5"/><circle r="7" fill="var(--marigold)" stroke="var(--ink)" stroke-width="2"/><circle r="2.5" fill="var(--sindoor)"/></g>
+      <g transform="translate(154,150)"><circle r="13" fill="none" stroke="var(--ink)" stroke-width="2.5"/><circle r="7" fill="var(--marigold)" stroke="var(--ink)" stroke-width="2"/><circle r="2.5" fill="var(--sindoor)"/></g>
+      <g transform="translate(100,185)">
+        <ellipse rx="10" ry="5" fill="var(--indigo)" transform="rotate(0)"/>
+        <ellipse rx="10" ry="5" fill="var(--indigo)" transform="rotate(60)"/>
+        <ellipse rx="10" ry="5" fill="var(--indigo)" transform="rotate(120)"/>
+        <circle r="4" fill="var(--marigold)"/>
+      </g>
+    </symbol>
+
+    <!-- KRISHNA LEELA (stylized folk pictogram) -->
+    <symbol id="icon-krishna" viewBox="0 0 200 200">
+      <path d="M30 190 Q30 165 45 155 Q60 145 65 158 Q66 175 60 190 Z" fill="var(--marigold)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="52" cy="150" r="10" fill="var(--marigold)" stroke="var(--ink)" stroke-width="3"/>
+      <path d="M40 152 L28 148" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="47" cy="170" r="2.5" fill="var(--sindoor)"/><circle cx="55" cy="178" r="2.5" fill="var(--sindoor)"/>
+      <g stroke="var(--leaf)" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M120 90 Q100 60 110 30"/><path d="M120 90 Q130 55 150 32"/><path d="M120 90 Q145 70 165 55"/>
+      </g>
+      <circle cx="112" cy="32" r="5" fill="var(--sindoor)"/><circle cx="150" cy="30" r="5" fill="var(--marigold)"/><circle cx="165" cy="53" r="5" fill="var(--sindoor)"/>
+      <path d="M112 95 Q104 150 112 188 L128 188 Q136 150 128 95 Z" fill="var(--indigo)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="120" cy="76" r="18" fill="var(--indigo)" stroke="var(--ink)" stroke-width="4"/>
+      <path d="M120 58 Q112 40 122 26 Q126 40 120 58" fill="var(--leaf)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="122" cy="34" r="2.5" fill="var(--marigold)"/>
+      <path d="M98 108 L150 92" stroke="var(--marigold)" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="106" cy="105" r="1.6" fill="var(--ink)"/><circle cx="116" cy="102" r="1.6" fill="var(--ink)"/><circle cx="126" cy="99" r="1.6" fill="var(--ink)"/>
+      <circle cx="112" cy="140" r="3" fill="var(--marigold)"/><circle cx="128" cy="150" r="3" fill="var(--sindoor)"/><circle cx="116" cy="165" r="3" fill="var(--marigold)"/>
+    </symbol>
+
+    <!-- SUN MANDALA (geometric) -->
+    <symbol id="icon-sun" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 6"/>
+      <g stroke-width="5" stroke-linecap="round">
+        <line x1="134" y1="100" x2="182" y2="100" stroke="var(--sindoor)"/>
+        <line x1="129" y1="117" x2="171" y2="141" stroke="var(--indigo)"/>
+        <line x1="117" y1="129" x2="141" y2="171" stroke="var(--sindoor)"/>
+        <line x1="100" y1="134" x2="100" y2="182" stroke="var(--indigo)"/>
+        <line x1="83" y1="129" x2="59" y2="171" stroke="var(--sindoor)"/>
+        <line x1="71" y1="117" x2="29" y2="141" stroke="var(--indigo)"/>
+        <line x1="66" y1="100" x2="18" y2="100" stroke="var(--sindoor)"/>
+        <line x1="71" y1="83" x2="29" y2="59" stroke="var(--indigo)"/>
+        <line x1="83" y1="71" x2="59" y2="29" stroke="var(--sindoor)"/>
+        <line x1="100" y1="66" x2="100" y2="18" stroke="var(--indigo)"/>
+        <line x1="117" y1="71" x2="141" y2="29" stroke="var(--sindoor)"/>
+        <line x1="129" y1="83" x2="171" y2="59" stroke="var(--indigo)"/>
+      </g>
+      <g fill="var(--leaf)">
+        <circle cx="182" cy="100" r="3.4"/><circle cx="171" cy="141" r="3.4"/><circle cx="141" cy="171" r="3.4"/><circle cx="100" cy="182" r="3.4"/>
+        <circle cx="59" cy="171" r="3.4"/><circle cx="29" cy="141" r="3.4"/><circle cx="18" cy="100" r="3.4"/><circle cx="29" cy="59" r="3.4"/>
+        <circle cx="59" cy="29" r="3.4"/><circle cx="100" cy="18" r="3.4"/><circle cx="141" cy="29" r="3.4"/><circle cx="171" cy="59" r="3.4"/>
+      </g>
+      <circle cx="100" cy="100" r="32" fill="var(--marigold)" stroke="var(--ink)" stroke-width="3.5"/>
+      <circle cx="100" cy="100" r="18" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 4"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <svg viewBox="0 0 100 100"><use href="#icon-logo"/></svg>
+      <span class="logo-text">Mithila <span>Art</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#sell">Sell Your Art</a></li>
+      <li><a href="#traditions">Traditions</a></li>
+      <li><a href="#artists">Artists</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#sell" class="btn btn-outline btn-small sell-nav-btn">Sell Your Art</a>
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Open cart">
+        <svg><use href="#icon-cart"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <svg id="hamburgerIcon"><use href="#icon-menu"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Janakpur &amp; the Mithila Terai</p>
+        <h1>Every line is drawn by hand, and carries a story passed from mother to daughter.</h1>
+        <p>Mithila Art connects painters across the Mithila region directly with people who want a hand-painted piece on their wall — no gallery mark-up, no middlemen, just the artist and you.</p>
+        <div class="hero-ctas">
+          <a href="#gallery" class="btn btn-solid">Browse the Gallery</a>
+          <a href="#sell" class="btn btn-outline">Sell Your Art</a>
+        </div>
+        <p class="hero-note">
+          <svg><use href="#icon-leaf-check"/></svg>
+          Every piece ships with the artist's name, village and the story behind it.
+        </p>
+      </div>
+      <figure class="hero-visual reveal">
+        <div class="frame">
+          <span class="corner tl"><svg><use href="#icon-corner"/></svg></span>
+          <span class="corner tr"><svg><use href="#icon-corner"/></svg></span>
+          <span class="corner bl"><svg><use href="#icon-corner"/></svg></span>
+          <span class="corner br"><svg><use href="#icon-corner"/></svg></span>
+          <svg class="artwork" viewBox="0 0 200 200"><use href="#icon-tree"/></svg>
+        </div>
+        <figcaption>Kalpavriksha — The Tree of Life</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="motif-band" aria-hidden="true">
+    <svg preserveAspectRatio="none" viewBox="0 0 600 30">
+      <defs>
+        <pattern id="fishBorder" width="60" height="30" patternUnits="userSpaceOnUse">
+          <path d="M4 16 Q20 5 40 16 Q20 27 4 16 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+          <path d="M40 16 L53 9 L53 23 Z" fill="var(--sindoor)" stroke="var(--ink)" stroke-width="1"/>
+          <circle cx="11" cy="14" r="1.8" fill="var(--ink)"/>
+        </pattern>
+      </defs>
+      <rect width="600" height="30" fill="url(#fishBorder)"/>
+    </svg>
+  </div>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Gallery</p>
+        <h2>Original work, straight from the artist's home</h2>
+        <p>Every painting below is made to order or ready to ship from the artist's village. Filter by theme to find the motif that speaks to you.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter by theme">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All Work</button>
+        <button class="filter-btn" data-filter="tree" aria-pressed="false">Tree of Life</button>
+        <button class="filter-btn" data-filter="fish" aria-pressed="false">Fish &amp; Water</button>
+        <button class="filter-btn" data-filter="peacock" aria-pressed="false">Peacock</button>
+        <button class="filter-btn" data-filter="kohbar" aria-pressed="false">Kohbar</button>
+        <button class="filter-btn" data-filter="krishna" aria-pressed="false">Krishna Leela</button>
+        <button class="filter-btn" data-filter="geometric" aria-pressed="false">Geometric</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"><!-- injected by JS --></div>
+      <p class="gallery-empty" id="galleryEmpty">No paintings match this theme yet — try another filter.</p>
+    </div>
+  </section>
+
+  <div class="motif-band alt" aria-hidden="true">
+    <svg preserveAspectRatio="none" viewBox="0 0 600 30">
+      <defs>
+        <pattern id="geoBorder" width="34" height="30" patternUnits="userSpaceOnUse">
+          <polygon points="2,26 10,6 18,26" fill="var(--leaf)" stroke="var(--ink)" stroke-width="1"/>
+          <circle cx="27" cy="16" r="4" fill="var(--sindoor)" stroke="var(--ink)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="600" height="30" fill="url(#geoBorder)"/>
+    </svg>
+  </div>
+
+  <!-- ================= SELL ================= -->
+  <section class="sell" id="sell">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">For Artists</p>
+        <h2>Open your wall to the world</h2>
+        <p>Whether you paint on paper, canvas or cloth, Mithila Art gives your work a storefront. You set the price. You keep 85% of every sale.</p>
+      </div>
+
+      <div class="sell-grid">
+        <ol class="steps reveal">
+          <li class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div><h3>Photograph your work</h3><p>Natural daylight, no flash, the full canvas in frame — a phone camera is fine.</p></div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div><h3>Tell us the story</h3><p>The theme, your village, the materials you used and how long the piece took.</p></div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div><h3>Set your price</h3><p>You decide what your work is worth. We only take a share when it actually sells.</p></div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true"></span>
+            <div><h3>Get paid directly</h3><p>Payment moves to your account as soon as the buyer confirms the piece has arrived.</p></div>
+          </li>
+        </ol>
+
+        <div class="frame sell-form reveal" id="sellFormWrap">
+          <form id="sellForm">
+            <h3>Submit your painting</h3>
+            <p class="form-sub">Takes about three minutes. We'll review and reply within 3 working days.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="artistName">Your name</label>
+                <input type="text" id="artistName" required placeholder="e.g. Sunita Karn">
+              </div>
+              <div class="field">
+                <label for="artistVillage">Village / district</label>
+                <input type="text" id="artistVillage" required placeholder="e.g. Janakpur">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="artworkTitle">Artwork title</label>
+              <input type="text" id="artworkTitle" required placeholder="e.g. Tree of Life in Bloom">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="artworkTheme">Theme</label>
+                <select id="artworkTheme" required>
+                  <option value="">Choose one</option>
+                  <option>Tree of Life</option>
+                  <option>Fish &amp; Water</option>
+                  <option>Peacock</option>
+                  <option>Kohbar</option>
+                  <option>Krishna Leela</option>
+                  <option>Geometric</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="artworkPrice">Your price (Rs.)</label>
+                <input type="number" id="artworkPrice" min="500" required placeholder="e.g. 9000">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="artworkDesc">Describe the piece</label>
+              <textarea id="artworkDesc" required placeholder="Materials, size, and the story behind it"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="artworkPhoto">Photo of the artwork</label>
+              <div class="file-field">
+                <input type="file" id="artworkPhoto" accept="image/*">
+                <span id="fileLabel">Tap to choose a photo</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-solid" style="width:100%;margin-top:6px;">Submit for review</button>
+          </form>
+
+          <div class="sell-success" id="sellSuccess">
+            <svg><use href="#icon-leaf-check"/></svg>
+            <h3>Thank you</h3>
+            <p id="sellSuccessText"></p>
+            <button class="btn btn-outline btn-small" id="sellAnotherBtn" style="margin-top:20px;">Submit another piece</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRADITIONS ================= -->
+  <section class="traditions" id="traditions">
+    <div class="wrap">
+      <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+        <p class="eyebrow">The Tradition</p>
+        <h2>Where this art comes from</h2>
+      </div>
+      <p class="traditions-intro reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        Mithila painting began on the mud walls and courtyards of homes across the Terai and neighbouring Bihar, made by women during weddings and festivals using twigs, brushes and pigments ground from turmeric, sindoor, charcoal and plant leaves. Today the same bold outlines and double-line borders are painted on paper and canvas, but the motifs still carry the meanings they always did.
+      </p>
+
+      <div class="motif-grid">
+        <div class="motif-item reveal">
+          <div class="icon-wrap"><svg viewBox="0 0 200 200"><use href="#icon-fish"/></svg></div>
+          <span class="motif-name">Machh · Fish</span>
+          <h3>Abundance</h3>
+          <p>The most-painted motif in Mithila art — a wish for a full home and a fertile season.</p>
+        </div>
+        <div class="motif-item reveal">
+          <div class="icon-wrap"><svg viewBox="0 0 200 200"><use href="#icon-peacock"/></svg></div>
+          <span class="motif-name">Mayur · Peacock</span>
+          <h3>Love &amp; monsoon</h3>
+          <p>Painted for weddings, the peacock stands for courtship and the rains that follow it.</p>
+        </div>
+        <div class="motif-item reveal">
+          <div class="icon-wrap"><svg viewBox="0 0 200 200"><use href="#icon-tree"/></svg></div>
+          <span class="motif-name">Kalpavriksha · Tree</span>
+          <h3>Continuity</h3>
+          <p>A tree that never stops giving — painted for new homes and new generations.</p>
+        </div>
+        <div class="motif-item reveal">
+          <div class="icon-wrap"><svg viewBox="0 0 200 200"><use href="#icon-sun"/></svg></div>
+          <span class="motif-name">Surya · Sun</span>
+          <h3>Balance</h3>
+          <p>Geometric sun mandalas mark the turning of festivals and the passing of seasons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ARTISTS ================= -->
+  <section class="artists" id="artists">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Meet the Painters</p>
+        <h2>The hands behind the work</h2>
+      </div>
+      <div class="artist-grid">
+        <div class="frame artist-card reveal">
+          <div class="artist-avatar">SK</div>
+          <blockquote>"I learned the double border from my grandmother before I learned to write my own name."</blockquote>
+          <div class="artist-meta"><strong>Sunita Karn</strong>Janakpur · painting since 2004</div>
+        </div>
+        <div class="frame artist-card reveal">
+          <div class="artist-avatar">RT</div>
+          <blockquote>"Selling straight to a buyer means I decide what my time is worth, not a shop owner in the city."</blockquote>
+          <div class="artist-meta"><strong>Renu Thakur</strong>Bijalpura · painting since 2011</div>
+        </div>
+        <div class="frame artist-card reveal">
+          <div class="artist-avatar">KD</div>
+          <blockquote>"Every peacock I paint is a little different — that's how you know a piece was made by hand."</blockquote>
+          <div class="artist-meta"><strong>Kaushalya Das</strong>Janakpur · painting since 1998</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg viewBox="0 0 100 100" style="width:28px;height:28px;"><use href="#icon-logo"/></svg>
+          <span class="logo-text">Mithila <span>Art</span></span>
+        </div>
+        <p>A marketplace built to put Mithila painters and the people who love their work in direct touch — no gallery in between.</p>
+        <div class="newsletter">
+          <label for="newsletterInput" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletterInput" placeholder="you@example.com">
+          <button type="button" id="newsletterBtn">Join</button>
+        </div>
+        <p class="newsletter-note" id="newsletterNote">New paintings, once a month. No spam.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#gallery">Gallery</a>
+        <a href="#traditions">Themes</a>
+        <a href="#gallery">New Arrivals</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sell</h4>
+        <a href="#sell">How it works</a>
+        <a href="#sell">Submit your art</a>
+        <a href="#artists">Featured artists</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <span>About Mithila Art</span>
+        <span>Contact</span>
+        <span>Shipping &amp; returns</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Mithila Art — a demo marketplace celebrating the folk art of the Mithila region.</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4v-2a1 1 0 0 1 1-1Z"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 18c1-3 1.5-5.5 1.5-7.5A2.5 2.5 0 0 1 13 8a2 2 0 0 1 2 2.2c-.2 1.6-1.1 3.8-1.1 3.8s1.6.6 2.5-1.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your Bag</h3>
+    <button class="cart-close" id="cartCloseBtn" aria-label="Close cart"><svg><use href="#icon-close"/></svg></button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">Rs. 0</span></div>
+    <button class="btn btn-solid" id="checkoutBtn" style="width:100%;">Checkout</button>
+    <div class="cart-success" id="cartSuccess">
+      <svg><use href="#icon-bag"/></svg>
+      <p style="font-size:0.88rem;color:var(--ink-soft);">This is a demo — no real order was placed and no payment was taken. In a live version this would move on to secure checkout.</p>
+      <button class="btn btn-outline btn-small" id="cartSuccessCloseBtn" style="margin-top:14px;">Close</button>
+    </div>
+    <p class="cart-note">Free delivery across the Terai · 5–9 days elsewhere</p>
+  </div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Data ---------------- */
+  var PRODUCTS = [
+    { id:1, title:"Tree of Life in Bloom", artist:"Sunita Karn", village:"Janakpur", theme:"tree", themeLabel:"Tree of Life", icon:"icon-tree", price:12500 },
+    { id:2, title:"Twin Fish of Fortune", artist:"Renu Thakur", village:"Bijalpura", theme:"fish", themeLabel:"Fish & Water", icon:"icon-fish", price:6800 },
+    { id:3, title:"Monsoon Peacock", artist:"Kaushalya Das", village:"Janakpur", theme:"peacock", themeLabel:"Peacock", icon:"icon-peacock", price:9200 },
+    { id:4, title:"Kohbar Ghar", artist:"Manju Mandal", village:"Dhanushadham", theme:"kohbar", themeLabel:"Kohbar", icon:"icon-kohbar", price:15000 },
+    { id:5, title:"Radha's Garden", artist:"Pramila Yadav", village:"Janakpur", theme:"krishna", themeLabel:"Krishna Leela", icon:"icon-krishna", price:18500 },
+    { id:6, title:"Nine Suns Mandala", artist:"Sunita Karn", village:"Janakpur", theme:"geometric", themeLabel:"Geometric", icon:"icon-sun", price:7400 },
+    { id:7, title:"River of Fish", artist:"Renu Thakur", village:"Bijalpura", theme:"fish", themeLabel:"Fish & Water", icon:"icon-fish", price:11200 },
+    { id:8, title:"Peacock Pair at Dusk", artist:"Kaushalya Das", village:"Janakpur", theme:"peacock", themeLabel:"Peacock", icon:"icon-peacock", price:13900 }
+  ];
+
+  var THEME_TINT = { tree:"tree of life in bloom.jpg", fish:"#2C4C7022", peacock:"#2C4C7022", kohbar:"#B23A2522", krishna:"#2C4C7022", geometric:"#DD8F2E22" };
+
+  function formatPrice(n){ return "Rs. " + n.toLocaleString("en-IN"); }
+
+  /* ---------------- Render gallery ---------------- */
+  var grid = document.getElementById("galleryGrid");
+  PRODUCTS.forEach(function(p){
+    var card = document.createElement("article");
+    card.className = "card reveal";
+    card.setAttribute("data-theme", p.theme);
+    card.innerHTML =
+      '<div class="frame card-thumb">' +
+        '<div class="icon-wrap" style="background:' + THEME_TINT[p.theme] + '">' +
+          '<svg viewBox="0 0 200 200"><use href="#' + p.icon + '"/></svg>' +
+        '</div>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<p class="card-theme">' + p.themeLabel + '</p>' +
+        '<h3 class="card-title">' + p.title + '</h3>' +
+        '<p class="card-artist">' + p.artist + ' · ' + p.village + '</p>' +
+        '<div class="card-footer">' +
+          '<span class="card-price">' + formatPrice(p.price) + '</span>' +
+          '<button class="btn btn-outline btn-small add-to-cart" data-id="' + p.id + '">Add to Cart</button>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+
+  /* ---------------- Filters ---------------- */
+  var filterBtns = document.querySelectorAll(".filter-btn");
+  var cards = document.querySelectorAll(".card");
+  var emptyMsg = document.getElementById("galleryEmpty");
+
+  filterBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      filterBtns.forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+      btn.setAttribute("aria-pressed","true");
+      var filter = btn.getAttribute("data-filter");
+      var visibleCount = 0;
+      cards.forEach(function(card){
+        var match = filter === "all" || card.getAttribute("data-theme") === filter;
+        card.classList.toggle("hidden", !match);
+        if(match) visibleCount++;
+      });
+      emptyMsg.classList.toggle("show", visibleCount === 0);
+    });
+  });
+
+  /* ---------------- Cart ---------------- */
+  var cart = [];
+  var cartItemsEl = document.getElementById("cartItems");
+  var cartCountEl = document.getElementById("cartCount");
+  var cartSubtotalEl = document.getElementById("cartSubtotal");
+  var cartDrawer = document.getElementById("cartDrawer");
+  var cartOverlay = document.getElementById("cartOverlay");
+  var checkoutBtn = document.getElementById("checkoutBtn");
+  var cartSuccess = document.getElementById("cartSuccess");
+  var cartFootDefaults = document.getElementById("cartSubtotal").closest ? null : null;
+
+  function openCart(){ cartDrawer.classList.add("open"); cartOverlay.classList.add("open"); cartSuccess.classList.remove("show"); checkoutBtn.style.display = ""; document.body.style.overflow = "hidden"; }
+  function closeCart(){ cartDrawer.classList.remove("open"); cartOverlay.classList.remove("open"); document.body.style.overflow = ""; }
+
+  document.getElementById("cartOpenBtn").addEventListener("click", openCart);
+  document.getElementById("cartCloseBtn").addEventListener("click", closeCart);
+  cartOverlay.addEventListener("click", closeCart);
+
+  function renderCart(){
+    cartCountEl.textContent = cart.reduce(function(sum,i){ return sum + i.qty; }, 0);
+
+    if(cart.length === 0){
+      cartItemsEl.innerHTML =
+        '<div class="cart-empty">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><use href="#icon-bag"/></svg>' +
+          '<p>Your bag is empty.</p>' +
+          '<a href="#gallery" id="cartBrowseLink">Browse the gallery →</a>' +
+        '</div>';
+      var link = document.getElementById("cartBrowseLink");
+      if(link) link.addEventListener("click", closeCart);
+      cartSubtotalEl.textContent = formatPrice(0);
+      checkoutBtn.disabled = true;
+      checkoutBtn.style.opacity = "0.5";
+      return;
+    }
+
+    checkoutBtn.disabled = false;
+    checkoutBtn.style.opacity = "1";
+
+    var html = "";
+    var subtotal = 0;
+    cart.forEach(function(item){
+      subtotal += item.price * item.qty;
+      html +=
+        '<div class="cart-item">' +
+          '<div class="thumb"><svg viewBox="0 0 200 200"><use href="#' + item.icon + '"/></svg></div>' +
+          '<div class="cart-item-info">' +
+            '<p class="name">' + item.title + '</p>' +
+            '<p class="meta">Qty ' + item.qty + ' · ' + formatPrice(item.price) + '</p>' +
+            '<button class="cart-item-remove" data-id="' + item.id + '">Remove</button>' +
+          '</div>' +
+        '</div>';
+    });
+    cartItemsEl.innerHTML = html;
+    cartSubtotalEl.textContent = formatPrice(subtotal);
+
+    cartItemsEl.querySelectorAll(".cart-item-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var id = Number(btn.getAttribute("data-id"));
+        cart = cart.filter(function(i){ return i.id !== id; });
+        renderCart();
+      });
+    });
+  }
+
+  document.querySelectorAll(".add-to-cart").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = Number(btn.getAttribute("data-id"));
+      var product = PRODUCTS.filter(function(p){ return p.id === id; })[0];
+      var existing = cart.filter(function(i){ return i.id === id; })[0];
+      if(existing){ existing.qty += 1; }
+      else { cart.push({ id:product.id, title:product.title, price:product.price, icon:product.icon, qty:1 }); }
+      renderCart();
+      var original = btn.textContent;
+      btn.textContent = "Added ✓";
+      setTimeout(function(){ btn.textContent = original; }, 1200);
+    });
+  });
+
+  checkoutBtn.addEventListener("click", function(){
+    if(cart.length === 0) return;
+    cartSuccess.classList.add("show");
+    checkoutBtn.style.display = "none";
+    cart = [];
+    renderCart();
+  });
+  document.getElementById("cartSuccessCloseBtn").addEventListener("click", closeCart);
+
+  renderCart();
+
+  /* ---------------- Mobile nav ---------------- */
+  var hamburgerBtn = document.getElementById("hamburgerBtn");
+  var hamburgerIcon = document.getElementById("hamburgerIcon");
+  hamburgerBtn.addEventListener("click", function(){
+    var isOpen = document.body.classList.toggle("nav-open");
+    hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+    hamburgerIcon.innerHTML = '<use href="' + (isOpen ? "#icon-close" : "#icon-menu") + '"/>';
+  });
+  document.querySelectorAll(".nav-links a").forEach(function(a){
+    a.addEventListener("click", function(){
+      document.body.classList.remove("nav-open");
+      hamburgerBtn.setAttribute("aria-expanded","false");
+      hamburgerIcon.innerHTML = '<use href="#icon-menu"/>';
+    });
+  });
+
+  /* ---------------- Sell form ---------------- */
+  var sellForm = document.getElementById("sellForm");
+  var sellSuccess = document.getElementById("sellSuccess");
+  var sellSuccessText = document.getElementById("sellSuccessText");
+
+  sellForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = document.getElementById("artistName").value.trim() || "there";
+    var title = document.getElementById("artworkTitle").value.trim() || "your painting";
+    sellSuccessText.textContent = "Thank you, " + name + " — we'll reach out about \"" + title + "\" within 3 working days.";
+    sellForm.classList.add("hidden");
+    sellSuccess.classList.add("show");
+  });
+  document.getElementById("sellAnotherBtn").addEventListener("click", function(){
+    sellForm.reset();
+    document.getElementById("fileLabel").textContent = "Tap to choose a photo";
+    sellForm.classList.remove("hidden");
+    sellSuccess.classList.remove("show");
+  });
+  document.getElementById("artworkPhoto").addEventListener("change", function(e){
+    var label = document.getElementById("fileLabel");
+    label.textContent = e.target.files && e.target.files[0] ? e.target.files[0].name : "Tap to choose a photo";
+  });
+
+  /* ---------------- Newsletter (demo) ---------------- */
+  document.getElementById("newsletterBtn").addEventListener("click", function(){
+    var input = document.getElementById("newsletterInput");
+    var note = document.getElementById("newsletterNote");
+    if(input.value && input.value.includes("@")){
+      note.textContent = "You're on the list — thank you.";
+      input.value = "";
+    } else {
+      note.textContent = "Enter a valid email to join.";
+    }
+  });
+
+  /* ---------------- Reveal on scroll ---------------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if("IntersectionObserver" in window && !reduceMotion){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in-view"); });
+  }
+
+  /* ---------------- Footer year ---------------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
